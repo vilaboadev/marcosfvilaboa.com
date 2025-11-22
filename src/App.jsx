@@ -12,14 +12,19 @@ const MainPage = lazy(() => import('./pages/MainPage'));
 
 // Loading component
 const LoadingSpinner = () => (
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    fontSize: '1.5rem',
-    color: '#003566'
-  }}>
+  <div
+    role="status"
+    aria-live="polite"
+    aria-label="Loading page content"
+    style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      fontSize: '1.5rem',
+      color: '#003566'
+    }}
+  >
     Loading...
   </div>
 );

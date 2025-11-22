@@ -97,13 +97,29 @@ const MainPage = () => {
         </motion.div>
       </motion.div>
       {/* About Me */}
-      <div id="aboutMe" style={{ minHeight: '100vh' }}>
-        {Array.from({ length: 26 }, (_, i) => <br key={`aboutMe-br-${i}`} />)}
-      </div>
+      <motion.div
+        id="aboutMe"
+        style={{ minHeight: '100vh', padding: '4rem 2rem' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>About Me</h2>
+        <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
+      </motion.div>
       {/* Contact */}
-      <div id="contact" style={{ minHeight: '100vh' }}>
-        {Array.from({ length: 28 }, (_, i) => <br key={`contact-br-${i}`} />)}
-      </div>
+      <motion.div
+        id="contact"
+        style={{ minHeight: '100vh', padding: '4rem 2rem' }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Contact</h2>
+        <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
+      </motion.div>
     </>
   );
 };

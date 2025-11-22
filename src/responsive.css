@@ -37,6 +37,12 @@ img {
   display: block;
 }
 
+/* CSS Custom Properties for navbar */
+:root {
+  --navbar-height: 100px;
+  --navbar-height-mobile: 90px;
+}
+
 /* Better responsive typography */
 @media (max-width: 767px) {
   body {
@@ -58,22 +64,22 @@ img {
 
 /* Utility classes for responsive display */
 .hide-mobile {
-  display: none;
+  display: none !important;
 }
 
 @media (min-width: 768px) {
   .hide-mobile {
-    display: block;
+    display: revert !important;
   }
 }
 
 .hide-desktop {
-  display: block;
+  display: revert !important;
 }
 
 @media (min-width: 768px) {
   .hide-desktop {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -130,12 +136,12 @@ nav {
 
 /* Add padding to body to account for fixed navbar */
 body {
-  padding-top: 100px;
+  padding-top: var(--navbar-height);
 }
 
 @media (max-width: 767px) {
   body {
-    padding-top: 90px;
+    padding-top: var(--navbar-height-mobile);
   }
 }
 
