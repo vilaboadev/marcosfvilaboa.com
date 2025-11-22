@@ -1,12 +1,44 @@
+import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
+import SEO from '../components/SEO';
 
 const MainPage = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6 },
+    },
+  };
+
   return (
     <>
+      <SEO
+        title="About Me | Marcos F. Vilaboa"
+        description="Personal website of Marcos F. Vilaboa - IT engineer, web developer, and technology enthusiast."
+      />
       <Navbar />
       {/* Home */}
-      <div id="home" className="row">
-        <div className="col-sm-4" id="homeAbout">
+      <motion.div
+        id="home"
+        className="row"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
+        <motion.div className="col-sm-4" id="homeAbout" variants={itemVariants}>
           <img
             src="/images/desktop.jpg"
             className="img-responsive img-circle fadeInLeftHomeImageAbout"
@@ -24,8 +56,8 @@ const MainPage = () => {
               ABOUT ME &gt;&gt;
             </a>
           </div>
-        </div>
-        <div className="col-sm-4" id="homeContact">
+        </motion.div>
+        <motion.div className="col-sm-4" id="homeContact" variants={itemVariants}>
           <img
             src="/images/table.jpg"
             className="img-responsive img-circle fadeInDownHomeImageAbout"
@@ -43,8 +75,8 @@ const MainPage = () => {
               <span className="homeAnimBtn">CONTACT ME &gt;&gt;</span>
             </a>
           </div>
-        </div>
-        <div className="col-sm-4" id="homeBlog">
+        </motion.div>
+        <motion.div className="col-sm-4" id="homeBlog" variants={itemVariants}>
           <img
             src="/images/coworkers.jpg"
             className="img-responsive img-circle fadeInRightHomeImageAbout"
@@ -62,8 +94,8 @@ const MainPage = () => {
               BLOG &gt;&gt;
             </a>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       {/* About Me */}
       <div id="aboutMe" style={{ minHeight: '100vh' }}>
         {Array.from({ length: 26 }, (_, i) => <br key={`aboutMe-br-${i}`} />)}
