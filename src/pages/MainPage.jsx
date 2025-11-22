@@ -66,11 +66,11 @@ const MainPage = () => {
       </div>
       {/* About Me */}
       <div id="aboutMe" style={{ minHeight: '100vh' }}>
-        {Array(26).fill(<br key={Math.random()} />)}
+        {Array.from({ length: 26 }, (_, i) => <br key={`aboutMe-br-${i}`} />)}
       </div>
       {/* Contact */}
       <div id="contact" style={{ minHeight: '100vh' }}>
-        {Array(28).fill(<br key={Math.random()} />)}
+        {Array.from({ length: 28 }, (_, i) => <br key={`contact-br-${i}`} />)}
       </div>
     </>
   );
