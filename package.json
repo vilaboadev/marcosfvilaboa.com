@@ -1,0 +1,28 @@
+{
+  "name": "marcosfvilaboa-website",
+  "version": "1.0.0",
+  "description": "Personal website made with HTML5, CSS3, jQuery, JavaScript and Bootstrap from scratch",
+  "scripts": {
+    "sass:build": "sass sass/style.scss css/style.css --no-source-map",
+    "sass:watch": "sass --watch sass/style.scss:css/style.css --no-source-map",
+    "serve": "browser-sync start --server --files '*.html, css/*.css, js/*.js' --no-notify",
+    "dev": "npm-run-all --parallel sass:watch serve",
+    "build": "npm run sass:build"
+  },
+  "keywords": [
+    "personal-website",
+    "portfolio",
+    "html5",
+    "css3",
+    "javascript",
+    "bootstrap",
+    "sass"
+  ],
+  "author": "Marcos F. Vilaboa",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "browser-sync": "^3.0.2",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.69.5"
+  }
+}
