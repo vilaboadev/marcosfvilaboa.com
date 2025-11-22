@@ -3,17 +3,25 @@ ___________________
 All the code of my personal website.
 ##### [_marcosfvilaboa.com_](marcosfvilaboa.com "go to my website")
 #### Under construction!!!
-News:
-- Includes of SaSS folders for migration [with 7-1 pattern from Hugo Giraudel](http://www.sitepoint.com/architecture-sass-project/ "7-1 pattern from Hugo Giraudel in SitePoint").
-- Modern development stack with automated SASS compilation and live-reload development server.
 
-I'm using HTML5, CSS3, Bootstrap, SaSS, jQuery and JavaScript, **all from scratch**, because...
+## Tech Stack
+
+This website has been **modernized with React** ⚛️ and built with modern web development tools:
+
+- **React 19** - Modern UI library for building interactive user interfaces
+- **Vite** - Fast build tool and development server with Hot Module Replacement (HMR)
+- **React Router** - Client-side routing for seamless navigation
+- **Bootstrap 5** - Responsive CSS framework
+- **CSS3** - Custom styling with the original design preserved
+
+### Previous Stack
+The original version was built with vanilla HTML5, CSS3, jQuery, and Bootstrap 3, **all from scratch**, because...
 > ..._this is how I learn **Web Development**_
 
 ## Development Setup
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) (version 14 or higher)
+- [Node.js](https://nodejs.org/) (version 18 or higher)
 - npm (comes with Node.js)
 
 ### Getting Started
@@ -23,22 +31,51 @@ I'm using HTML5, CSS3, Bootstrap, SaSS, jQuery and JavaScript, **all from scratc
    npm install
    ```
 
-2. **Start development server with live reload:**
+2. **Start development server:**
    ```bash
    npm run dev
    ```
-   This will compile your SASS files and start a local server at `http://localhost:3000` with automatic browser refresh when files change.
+   The development server will start at `http://localhost:5173/` with Hot Module Replacement (HMR) for instant updates.
 
-3. **Build CSS for production:**
+3. **Build for production:**
    ```bash
    npm run build
+   ```
+   Creates optimized production build in the `dist/` folder.
+
+4. **Preview production build:**
+   ```bash
+   npm run preview
    ```
 
 ### Available Scripts
 
-- `npm run dev` - Start development server with live reload and SASS watch mode
-- `npm run build` - Compile SASS to CSS for production
-- `npm run sass:watch` - Watch SASS files and recompile on changes
-- `npm run sass:build` - Compile SASS to CSS once
-- `npm run serve` - Start local development server with browser-sync
+- `npm run dev` - Start Vite development server with HMR
+- `npm run build` - Build optimized production bundle
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint to check code quality
 
+## Project Structure
+
+```
+src/
+├── components/       # Reusable React components
+│   ├── Navbar.jsx   # Navigation bar with scroll effects
+│   └── TypeWriter.jsx # Typing animation effect
+├── pages/           # Page components
+│   ├── StartPage.jsx  # Landing page with intro
+│   └── MainPage.jsx   # Main content with sections
+├── App.jsx          # Main app component with routing
+├── main.jsx         # Application entry point
+└── style.css        # Custom styles
+```
+
+## Features
+
+- ⚡ Lightning-fast development with Vite
+- 🔥 Hot Module Replacement for instant updates
+- 📱 Fully responsive design
+- ✨ Smooth animations and transitions
+- 🎨 Custom typewriter effect
+- 🧭 Client-side routing with React Router
+- 🏗️ Component-based architecture
