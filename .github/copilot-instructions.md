@@ -33,22 +33,24 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
 ### Styling Standards
 - Use rem/em units for scalability
 - Define colors in hex format
-- Include vendor prefixes for cross-browser compatibility:
+- Include vendor prefixes for key CSS3 properties (transitions, transforms, gradients) for cross-browser compatibility:
   - `-webkit-` for Chrome, Safari
   - `-moz-` for Firefox
   - `-o-` for Opera
   - `-ms-` for Internet Explorer
-- Order vendor prefixes consistently (webkit, moz, o, ms)
+  - Standard property should come last
+- Order vendor prefixes consistently (webkit, moz, o, ms, then standard)
 - Use transitions for smooth effects: `transition: all 0.4s ease`
+- Note: While modern browsers need fewer prefixes, this project includes them for broad compatibility and learning purposes
 
 ### Responsive Design
 - Follow mobile-first approach with media queries
-- Use standard Bootstrap breakpoints:
-  - Extra Small: < 480px (vertical phones)
-  - Small: ≥ 480px (horizontal phones, vertical tablets)
-  - Medium: ≥ 768px (horizontal tablets, low-res desktops)
-  - Large: ≥ 992px (normal desktops)
-  - Extra Large: ≥ 1200px (wide screens)
+- Use Bootstrap 3.3.7 standard breakpoints:
+  - Extra Small (xs): < 768px (phones)
+  - Small (sm): ≥ 768px (tablets)
+  - Medium (md): ≥ 992px (desktops)
+  - Large (lg): ≥ 1200px (large desktops)
+- Additional custom breakpoint at 480px is used for enhanced phone layouts
 - Test responsive behavior at all breakpoints
 
 ## JavaScript/jQuery Guidelines
@@ -58,7 +60,8 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
 - Place variables at the top of their scope
 - Use descriptive variable names with camelCase
 - Cache jQuery selectors when used multiple times
-- Use `var` for variable declarations (ES5 style maintained in this project)
+- Use `var` for variable declarations to maintain consistency with existing ES5 codebase
+  - Note: While `let`/`const` are modern best practices, this project maintains ES5 style for learning purposes
 
 ### jQuery Patterns
 - Use method chaining where appropriate
