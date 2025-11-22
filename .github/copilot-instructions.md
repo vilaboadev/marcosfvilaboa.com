@@ -21,7 +21,8 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
 ## CSS/Sass Guidelines
 
 ### Code Organization
-- Follow the 7-1 pattern from Hugo Giraudel for Sass architecture
+- Follow the 7-1 pattern from Hugo Giraudel for Sass architecture (organizing styles into 7 folders and 1 main file for imports)
+  - Reference: http://www.sitepoint.com/architecture-sass-project/
 - Main styles are in `sass/style.scss`
 - Compiled CSS goes to `css/style.css`
 
@@ -33,7 +34,7 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
 ### Styling Standards
 - Use rem/em units for scalability
 - Define colors in hex format
-- Include vendor prefixes for key CSS3 properties (transitions, transforms, gradients) for cross-browser compatibility:
+- Include vendor prefixes for key CSS3 properties (transitions, transforms, gradients) to maintain consistency with existing code:
   - `-webkit-` for Chrome, Safari
   - `-moz-` for Firefox
   - `-o-` for Opera
@@ -41,7 +42,7 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
   - Standard property should come last
 - Order vendor prefixes consistently (webkit, moz, o, ms, then standard)
 - Use transitions for smooth effects: `transition: all 0.4s ease`
-- Note: While modern browsers need fewer prefixes, this project includes them for broad compatibility and learning purposes
+- Note: This project uses vendor prefixes for legacy browser compatibility and learning purposes; modern projects may use autoprefixer instead
 
 ### Responsive Design
 - Follow mobile-first approach with media queries
@@ -61,7 +62,8 @@ This repository contains a personal website built with HTML5, CSS3, Bootstrap, S
 - Use descriptive variable names with camelCase
 - Cache jQuery selectors when used multiple times
 - Use `var` for variable declarations to maintain consistency with existing ES5 codebase
-  - Note: While `let`/`const` are modern best practices, this project maintains ES5 style for learning purposes
+  - Note: Modern JavaScript best practices recommend `let`/`const` which avoid hoisting and scope issues
+  - For significant new additions, `let`/`const` may be acceptable if it improves code quality
 
 ### jQuery Patterns
 - Use method chaining where appropriate
