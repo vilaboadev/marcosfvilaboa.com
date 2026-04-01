@@ -33,7 +33,7 @@ Now modernized to industry-standard React architecture! 🎉
 
 ## 📋 Prerequisites
 
-- [Node.js](https://nodejs.org/) (version 18 or higher)
+- [Node.js](https://nodejs.org/) (version 20 or higher)
 - npm (comes with Node.js)
 
 ## 🛠️ Getting Started
