@@ -134,17 +134,6 @@ nav {
   z-index: 1000;
 }
 
-/* Add padding to body to account for fixed navbar */
-body {
-  padding-top: var(--navbar-height);
-}
-
-@media (max-width: 767px) {
-  body {
-    padding-top: var(--navbar-height-mobile);
-  }
-}
-
 /* Better responsive card layout */
 .card-responsive {
   padding: 1.5rem;
