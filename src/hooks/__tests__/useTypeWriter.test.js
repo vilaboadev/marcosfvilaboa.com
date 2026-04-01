@@ -52,4 +52,20 @@ describe('useTypeWriter', () => {
     unmount();
     expect(clearSpy).toHaveBeenCalled();
   });
+
+  it('resets and restarts when the text prop changes', async () => {
+    let text = 'AB';
+    const { result, rerender } = renderHook(() => useTypeWriter(text));
+
+    // Finish typing 'AB'
+    for (let i = 0; i <= text.length; i++) {
+      await tick();
+    }
+    expect(result.current).toBe('AB');
+
+    // Change text prop – hook should reset displayText to empty string
+    text = 'XY';
+    rerender();
+    expect(result.current).toBe('');
+  });
 });

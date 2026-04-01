@@ -24,20 +24,34 @@ describe('Navbar', () => {
     expect(container.querySelector('nav').className).not.toContain('shrink');
   });
 
-  it('toggles the mobile menu when the burger button is clicked', () => {
+  it('uses Bootstrap 5 "show" class (not BS3 "in") to expand the menu', () => {
     render(<Navbar />);
-    const menuBtn = screen.getByRole('button');
+    // Use the accessible name to distinguish from the language-toggle button
+    const toggleBtn = screen.getByRole('button', { name: /toggle navigation/i });
     const mainMenu = document.getElementById('mainMenu');
 
-    expect(mainMenu.className).not.toContain('in');
-    fireEvent.click(menuBtn);
-    expect(mainMenu.className).toContain('in');
-    fireEvent.click(menuBtn);
-    expect(mainMenu.className).not.toContain('in');
+    expect(mainMenu.className).not.toContain('show');
+    fireEvent.click(toggleBtn);
+    expect(mainMenu.className).toContain('show');
+    fireEvent.click(toggleBtn);
+    expect(mainMenu.className).not.toContain('show');
   });
 
   it('renders the language selector', () => {
     render(<Navbar />);
     expect(screen.getByText(/Language/i)).toBeInTheDocument();
+  });
+
+  it('language toggle is a <button> (not an anchor) for proper semantics', () => {
+    render(<Navbar />);
+    const languageBtn = screen.getByRole('button', { name: /language/i });
+    expect(languageBtn.tagName).toBe('BUTTON');
+  });
+
+  it('uses Bootstrap 5 fixed-top class instead of BS3 navbar-fixed-top', () => {
+    const { container } = render(<Navbar />);
+    const nav = container.querySelector('nav');
+    expect(nav.className).toContain('fixed-top');
+    expect(nav.className).not.toContain('navbar-fixed-top');
   });
 });

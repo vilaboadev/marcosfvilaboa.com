@@ -30,7 +30,7 @@ const HomeCard = ({
   <motion.div className="col-sm-4" id={id} variants={STAGGER_ITEM}>
     <img
       src={imageSrc}
-      className={`img-responsive img-circle ${imageClass}`}
+      className={`img-fluid rounded-circle ${imageClass}`}
       alt={imageAlt}
       style={{ width: '98%' }}
       onError={(e) => {

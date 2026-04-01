@@ -126,24 +126,7 @@ a:focus {
   }
 }
 
-/* Ensure navbar is always accessible */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-/* Add padding to body to account for fixed navbar */
-body {
-  padding-top: var(--navbar-height);
-}
-
-@media (max-width: 767px) {
-  body {
-    padding-top: var(--navbar-height-mobile);
-  }
-}
+/* Ensure navbar is always accessible via Bootstrap 5's fixed-top class */
 
 /* Better responsive card layout */
 .card-responsive {
