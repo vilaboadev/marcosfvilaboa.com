@@ -72,11 +72,14 @@ const Navbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(LANGUAGES[0]);
 
   const handleNavLinkClick = (e, sectionId) => {
+    e.preventDefault();
     if (!sectionId) {
-      e.preventDefault();
       return;
     }
     scrollToSection(sectionId);
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, '', `#${sectionId}`);
+    }
     setIsMenuOpen(false);
   };
 
