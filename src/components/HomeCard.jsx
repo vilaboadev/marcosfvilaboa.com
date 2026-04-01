@@ -40,7 +40,7 @@ const HomeCard = ({
     <div className="homeText">
       <h3 className="media-heading">{heading}</h3>
       <p>{bodyText}</p>
-      <a href={linkHref} className={`btn btn-primary btn-lg ${linkClass}`} role="button">
+      <a href={linkHref} className={`btn btn-primary btn-lg ${linkClass}`}>
         {linkLabel}
       </a>
     </div>
