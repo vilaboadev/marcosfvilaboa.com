@@ -1,127 +1,56 @@
 import { motion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import SEO from '../components/SEO';
+import HomeCard from '../components/HomeCard';
+import { STAGGER_CONTAINER } from '../constants';
+import { HOME_CARDS } from '../constants/homeCards';
 
-const MainPage = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.6 },
-    },
-  };
-
-  return (
-    <>
-      <SEO
-        title="About Me | Marcos F. Vilaboa"
-        description="Personal website of Marcos F. Vilaboa - IT engineer, web developer, and technology enthusiast."
-      />
-      <Navbar />
-      {/* Home */}
-      <motion.div
-        id="home"
-        className="row"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <motion.div className="col-sm-4" id="homeAbout" variants={itemVariants}>
-          <img
-            src="/images/desktop.jpg"
-            className="img-responsive img-circle fadeInLeftHomeImageAbout"
-            alt="My desktop"
-            style={{ width: '98%' }}
-            onError={(e) => { e.target.style.display = 'none'; }}
-          />
-          <div className="homeText">
-            <h3 className="media-heading zoomInLeftHomeTextAbout">ABOUT ME</h3>
-            <p className="zoomInLeftHomeTextAbout">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-            <a href="#aboutMe" className="btn btn-primary btn-lg bounceInLeftHomeBtnAbout" role="button">
-              ABOUT ME &gt;&gt;
-            </a>
-          </div>
-        </motion.div>
-        <motion.div className="col-sm-4" id="homeContact" variants={itemVariants}>
-          <img
-            src="/images/table.jpg"
-            className="img-responsive img-circle fadeInDownHomeImageAbout"
-            alt="My work table"
-            style={{ width: '98%' }}
-            onError={(e) => { e.target.style.display = 'none'; }}
-          />
-          <div className="homeText">
-            <h3 className="media-heading zoomInDownHomeTextAbout">CONTACT</h3>
-            <p className="zoomInDownHomeTextAbout">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-            <a href="#contact" className="btn btn-primary btn-lg bounceInDownHomeBtnAbout" role="button">
-              <span className="homeAnimBtn">CONTACT ME &gt;&gt;</span>
-            </a>
-          </div>
-        </motion.div>
-        <motion.div className="col-sm-4" id="homeBlog" variants={itemVariants}>
-          <img
-            src="/images/coworkers.jpg"
-            className="img-responsive img-circle fadeInRightHomeImageAbout"
-            alt="Co-working"
-            style={{ width: '98%' }}
-            onError={(e) => { e.target.style.display = 'none'; }}
-          />
-          <div className="homeText">
-            <h3 className="media-heading zoomInRightHomeTextAbout">BLOG</h3>
-            <p className="zoomInRightHomeTextAbout">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua.
-            </p>
-            <a href="#" className="btn btn-primary btn-lg bounceInRightHomeBtnAbout" role="button">
-              BLOG &gt;&gt;
-            </a>
-          </div>
-        </motion.div>
-      </motion.div>
-      {/* About Me */}
-      <motion.div
-        id="aboutMe"
-        style={{ minHeight: '100vh', padding: '4rem 2rem' }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>About Me</h2>
-        <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
-      </motion.div>
-      {/* Contact */}
-      <motion.div
-        id="contact"
-        style={{ minHeight: '100vh', padding: '4rem 2rem' }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Contact</h2>
-        <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
-      </motion.div>
-    </>
-  );
+const SECTION_PROPS = {
+  style: { minHeight: '100vh', padding: '4rem 2rem' },
+  initial: { opacity: 0 },
+  whileInView: { opacity: 1 },
+  viewport: { once: true },
+  transition: { duration: 0.8 },
 };
+
+/**
+ * Main content page containing the home grid, about-me, and contact sections.
+ * Rendering data (HOME_CARDS) is decoupled from this component (DIP).
+ */
+const MainPage = () => (
+  <>
+    <SEO
+      title="About Me | Marcos F. Vilaboa"
+      description="Personal website of Marcos F. Vilaboa – IT engineer, web developer, and technology enthusiast."
+    />
+    <Navbar />
+
+    {/* Home grid */}
+    <motion.div
+      id="home"
+      className="row"
+      variants={STAGGER_CONTAINER}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: '-100px' }}
+    >
+      {HOME_CARDS.map((card) => (
+        <HomeCard key={card.id} {...card} />
+      ))}
+    </motion.div>
+
+    {/* About Me */}
+    <motion.div id="aboutMe" {...SECTION_PROPS}>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>About Me</h2>
+      <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
+    </motion.div>
+
+    {/* Contact */}
+    <motion.div id="contact" {...SECTION_PROPS}>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Contact</h2>
+      <p style={{ textAlign: 'center', fontSize: '1.1rem' }}>Content coming soon...</p>
+    </motion.div>
+  </>
+);
 
 export default MainPage;

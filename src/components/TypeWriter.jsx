@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react';
+import useTypeWriter from '../hooks/useTypeWriter';
 
+/**
+ * Renders `text` one character at a time using the useTypeWriter hook.
+ * Presentation-only component (SRP).
+ */
 const TypeWriter = ({ text }) => {
-  const [displayText, setDisplayText] = useState('');
-  const [charIndex, setCharIndex] = useState(0);
-
-  useEffect(() => {
-    if (charIndex <= text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText(text.substring(0, charIndex));
-        setCharIndex(charIndex + 1);
-      }, charIndex === 0 ? 1200 : Math.random() * (300 - 60 + 1) + 60);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [charIndex, text]);
-
+  const displayText = useTypeWriter(text);
   return <span>{displayText}</span>;
 };
 
