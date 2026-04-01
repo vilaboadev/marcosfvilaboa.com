@@ -48,6 +48,17 @@ describe('Navbar', () => {
     expect(languageBtn.tagName).toBe('BUTTON');
   });
 
+  it('language menu uses role="menu" / role="menuitem" (not listbox/option)', () => {
+    render(<Navbar />);
+    const trigger = screen.getByRole('button', { name: /language/i });
+    // Open the menu
+    fireEvent.click(trigger);
+    // Items must be buttons with role="menuitem" (no nested anchors)
+    const items = screen.getAllByRole('menuitem');
+    expect(items.length).toBeGreaterThan(0);
+    items.forEach((item) => expect(item.tagName).toBe('BUTTON'));
+  });
+
   it('uses Bootstrap 5 fixed-top class instead of BS3 navbar-fixed-top', () => {
     const { container } = render(<Navbar />);
     const nav = container.querySelector('nav');

@@ -13,8 +13,9 @@ const scrollToSection = (sectionId) => {
 
 /**
  * Renders the language-picker dropdown.
- * Uses a <button> (not <a>) for the trigger so it is keyboard-accessible
- * and semantically correct (no href navigation side-effect).
+ * Uses role="menu" / role="menuitem" with <button> items – the only valid
+ * ARIA pattern for a dropdown that contains interactive controls.
+ * (role="listbox" / role="option" forbids interactive descendants.)
  */
 const LanguageMenu = ({ isOpen, selected, onToggle, onSelect }) => (
   <li
@@ -25,7 +26,7 @@ const LanguageMenu = ({ isOpen, selected, onToggle, onSelect }) => (
       type="button"
       className="nav-link dropdown-toggle btn btn-link"
       onClick={onToggle}
-      aria-haspopup="listbox"
+      aria-haspopup="menu"
       aria-expanded={isOpen}
       aria-controls="language-menu-list"
     >
@@ -33,27 +34,21 @@ const LanguageMenu = ({ isOpen, selected, onToggle, onSelect }) => (
     </button>
     <ul
       id="language-menu-list"
-      role="listbox"
+      role="menu"
       className={`dropdown-menu${isOpen ? ' show' : ''}`}
       style={{ display: isOpen ? 'block' : 'none' }}
     >
       {LANGUAGES.map((lang) => (
-        <li
-          key={lang}
-          role="option"
-          aria-selected={selected === lang}
-          className={selected === lang ? 'selected' : ''}
-        >
-          <a
-            href="#"
+        <li key={lang} role="none" className={selected === lang ? 'selected' : ''}>
+          <button
+            type="button"
+            role="menuitem"
             className="dropdown-item"
-            onClick={(e) => {
-              e.preventDefault();
-              onSelect(lang);
-            }}
+            aria-current={selected === lang ? 'true' : undefined}
+            onClick={() => onSelect(lang)}
           >
             {lang}
-          </a>
+          </button>
         </li>
       ))}
     </ul>

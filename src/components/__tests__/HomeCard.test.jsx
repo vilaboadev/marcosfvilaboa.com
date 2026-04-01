@@ -49,7 +49,7 @@ describe('HomeCard', () => {
 
   it('renders the CTA link with the correct href', () => {
     render(<HomeCard {...defaultProps} />);
-    expect(screen.getByRole('button', { name: 'TEST >>' })).toHaveAttribute('href', '#test');
+    expect(screen.getByRole('link', { name: 'TEST >>' })).toHaveAttribute('href', '#test');
   });
 
   it('renders the image with the correct alt text', () => {
