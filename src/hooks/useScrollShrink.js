@@ -16,6 +16,7 @@ const useScrollShrink = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // check initial scroll position on mount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

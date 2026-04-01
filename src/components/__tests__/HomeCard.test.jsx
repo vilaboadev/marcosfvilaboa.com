@@ -28,11 +28,9 @@ const defaultProps = {
   id: 'homeAbout',
   imageSrc: '/img.jpg',
   imageAlt: 'Test image',
-  imageClass: 'testClass',
   heading: 'TEST HEADING',
   bodyText: 'Test body text.',
   linkHref: '#test',
-  linkClass: 'testBtn',
   linkLabel: 'TEST >>',
 };
 

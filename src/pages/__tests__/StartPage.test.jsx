@@ -41,12 +41,12 @@ describe('StartPage', () => {
 
   it('renders the "KNOW ME" call-to-action link', () => {
     renderStartPage();
-    expect(screen.getByRole('button', { name: /KNOW ME/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /KNOW ME/i })).toBeInTheDocument();
   });
 
   it('links to the /main route', () => {
     renderStartPage();
-    const link = screen.getByRole('button', { name: /KNOW ME/i });
-    expect(link.closest('a')).toHaveAttribute('href', '/main');
+    const link = screen.getByRole('link', { name: /KNOW ME/i });
+    expect(link).toHaveAttribute('href', '/main');
   });
 });

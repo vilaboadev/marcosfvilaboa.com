@@ -11,6 +11,8 @@ const TAGLINE =
  * Landing / splash page.
  * Presentation-only – all animation config lives in constants (DIP / DRY).
  */
+const TAGLINE_LINES = TAGLINE.split('\n');
+
 const StartPage = () => (
   <>
     <SEO
@@ -21,20 +23,16 @@ const StartPage = () => (
       <motion.h1 id="typer" className="col-sm-12" {...SLIDE_DOWN}>
         <TypeWriter text="{ marcosfvilaboa }" />
       </motion.h1>
-      <motion.p className="col-sm-12 fadeInUpText" {...SLIDE_UP}>
-        {TAGLINE.split('\n').map((line, i) => (
+      <motion.p className="col-sm-12" {...SLIDE_UP}>
+        {TAGLINE_LINES.map((line, i) => (
           <span key={i}>
             {line}
-            {i < TAGLINE.split('\n').length - 1 && <br />}
+            {i < TAGLINE_LINES.length - 1 && <br />}
           </span>
         ))}
       </motion.p>
       <motion.div {...SLIDE_RIGHT}>
-        <Link
-          to="/main"
-          className="btn btn-primary btn-lg bounceInLeftButton"
-          role="button"
-        >
+        <Link to="/main" className="btn btn-primary btn-lg">
           KNOW ME &gt;&gt;
         </Link>
       </motion.div>

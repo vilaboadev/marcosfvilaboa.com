@@ -21,6 +21,16 @@ describe('useScrollShrink', () => {
     expect(result.current).toBe(false);
   });
 
+  it('returns true immediately on mount when page is already scrolled past threshold', () => {
+    Object.defineProperty(window, 'scrollY', {
+      value: SCROLL_SHRINK_THRESHOLD + 1,
+      writable: true,
+      configurable: true,
+    });
+    const { result } = renderHook(() => useScrollShrink());
+    expect(result.current).toBe(true);
+  });
+
   it(`returns true when scrollY exceeds ${SCROLL_SHRINK_THRESHOLD}px`, () => {
     const { result } = renderHook(() => useScrollShrink());
 
