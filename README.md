@@ -154,10 +154,10 @@ dist/assets/index-*.js           243.47 kB │ gzip:  78.89 kB
 
 ### Frontend
 - React 19.2.0
-- React Router DOM 7.2.0
+- React Router DOM 7.9.6
 - Bootstrap 5.3.3
-- Framer Motion 11.18.0
-- React Helmet Async 2.0.5
+- Framer Motion 12.23.24
+- React Helmet Async 3.0.0
 
 ### Build Tools
 - Vite 7.2.4
