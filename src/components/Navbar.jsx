@@ -80,7 +80,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-light bg-white fixed-top navbar-custom slideInDownNav${isShrunk ? ' shrink' : ''}`}
+      className={`navbar navbar-expand-lg navbar-light bg-white fixed-top navbar-custom${isShrunk ? ' shrink' : ''}`}
       role="navigation"
     >
       <div className="container-fluid">
