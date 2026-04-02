@@ -2,7 +2,7 @@
 ___________________
 All the code of my personal website - **fully modernized with React!**
 
-##### [_marcosfvilaboa.com_](marcosfvilaboa.com "go to my website")
+##### [_marcosfvilaboa.com_](https://marcosfvilaboa.com "go to my website")
 
 ## 🚀 Modern Tech Stack
 
