@@ -1,0 +1,159 @@
+/* Modern Responsive Utilities */
+
+/* Mobile-first responsive container */
+.responsive-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive grid using CSS Grid */
+.responsive-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .responsive-container {
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Improved responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CSS Custom Properties for navbar */
+:root {
+  --navbar-height: 100px;
+  --navbar-height-mobile: 90px;
+}
+
+/* Better responsive typography */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Utility classes for responsive display */
+.hide-mobile {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: revert !important;
+  }
+}
+
+.hide-desktop {
+  display: revert !important;
+}
+
+@media (min-width: 768px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Smooth scrolling for all browsers */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better accessibility: focus styles */
+*:focus {
+  outline: 2px solid #003566;
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+  outline: 2px solid #003566;
+  outline-offset: 2px;
+}
+
+/* Improved button hover states for touch devices */
+@media (hover: hover) {
+  button:hover,
+  a.btn:hover {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+}
+
+/* Better responsive spacing */
+.section-spacing {
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-spacing {
+    padding: 6rem 0;
+  }
+}
+
+/* Ensure navbar is always accessible via Bootstrap 5's fixed-top class */
+
+/* Better responsive card layout */
+.card-responsive {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .card-responsive {
+    padding: 2rem;
+  }
+}
+
+/* Flexbox utilities for responsive layouts */
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .flex-row-md {
+    flex-direction: row;
+  }
+}
